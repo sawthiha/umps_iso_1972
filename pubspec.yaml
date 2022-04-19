@@ -15,6 +15,11 @@ dependencies:
   fluent_ui: ^3.10.3
   fluentui_icons: ^1.0.0
   sqflite: ^2.0.2+1
+  flutter_localizations: 
+    sdk: flutter
+    version: ^0.0.0
+  get: ^4.6.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +28,8 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
+
+  generate: true
 
   uses-material-design: true
 
