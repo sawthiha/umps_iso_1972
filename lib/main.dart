@@ -3,19 +3,30 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(
-    FluentApp(
-      title: 'Hello there',
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: Center(
+    const App()
+  );
+}
+
+class App extends StatelessWidget   {
+
+  const App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => FluentApp(
+    title: 'UMPS ISO 1972: Photo Tournament Judging Interface',
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    locale: const Locale('my'),
+    home: Center(
+      child: TextButton(
+        onPressed: ()  {
+
+        },
         child: Builder(
-          builder: (context) => TextButton(
-              onPressed: ()  {
-              },
-              child: Text(AppLocalizations.of(context)!.helloWorld),
-            ),
-          ),
+          builder: (context) => Text(AppLocalizations.of(context)!.title)
         ),
       ),
+    ),
   );
+
 }

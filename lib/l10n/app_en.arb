@@ -1,6 +1,14 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
+    "title": "UMPS ISO 1972: Photo Tournament Judging Interface",
+    "@title": {
+      "description": "Application Title"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Setting Menu Item"
+    },
+    "about": "About",
+    "@about": {
+        "description": "About Menu Item"
     }
 }
