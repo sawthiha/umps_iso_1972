@@ -14,12 +14,12 @@ dependencies:
 
   fluent_ui: ^3.10.3
   fluentui_icons: ^1.0.0
-  sqflite: ^2.0.2+1
   flutter_localizations: 
     sdk: flutter
     version: ^0.0.0
   get: ^4.6.1
   intl: ^0.17.0
+  objectbox: ^1.4.1
 
 dev_dependencies:
   flutter_test:

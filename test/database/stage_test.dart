@@ -1,21 +1,20 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main(List<String> args) {
-
-  group('Tournament Templates',
+  group('Score',
     ()  {
+      
+    }
+  );
+  
+  group('ScoreEntry',
+    ()  {
+
     }
   );
 
-  group('Judge Templates',
+  group('Stage',
     ()  {
-
-    }
-  );
-
-  group('Relation Template',
-    ()  {
-
     }
   );
 
