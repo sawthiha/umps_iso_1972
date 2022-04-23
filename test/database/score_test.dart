@@ -11,7 +11,7 @@ void main(List<String> args) {
 
         }
       );
-      test('Create complete score',
+      test('Create score',
         ()  {
 
         }

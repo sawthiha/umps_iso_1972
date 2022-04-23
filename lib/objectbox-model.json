@@ -1,0 +1,187 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "5:8360509503699827125",
+      "lastPropertyId": "6:524073830556828776",
+      "name": "Judge",
+      "properties": [
+        {
+          "id": "1:1414513155036027999",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:1777527789161249629",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:1089653184613473677",
+          "name": "residenceId",
+          "type": 9
+        },
+        {
+          "id": "4:7336841630808013173",
+          "name": "address",
+          "type": 9
+        },
+        {
+          "id": "5:6747506728110887513",
+          "name": "phone",
+          "type": 9
+        },
+        {
+          "id": "6:524073830556828776",
+          "name": "email",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:9095652094058333340",
+      "lastPropertyId": "6:473302167760636704",
+      "name": "Participant",
+      "properties": [
+        {
+          "id": "1:2097063842679654283",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:1150680766921259761",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:226940530939374898",
+          "name": "residenceId",
+          "type": 9
+        },
+        {
+          "id": "4:7463807852558615959",
+          "name": "address",
+          "type": 9
+        },
+        {
+          "id": "5:5071726637875788921",
+          "name": "phone",
+          "type": 9
+        },
+        {
+          "id": "6:473302167760636704",
+          "name": "email",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:1372100812157548192",
+      "lastPropertyId": "3:7910226822742996695",
+      "name": "Score",
+      "properties": [
+        {
+          "id": "1:4894947576706125332",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:1049902275129523636",
+          "name": "judgeId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:6190742138973010568",
+          "relationTarget": "Judge"
+        },
+        {
+          "id": "3:7910226822742996695",
+          "name": "score",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "8:4642788483252372017",
+      "lastPropertyId": "1:5621815656417561678",
+      "name": "ScoreboardEntry",
+      "properties": [
+        {
+          "id": "1:5621815656417561678",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:5441611030727067559",
+          "name": "scores",
+          "targetId": "7:1372100812157548192"
+        }
+      ]
+    },
+    {
+      "id": "9:7977700797493693521",
+      "lastPropertyId": "1:3138701474444696453",
+      "name": "Stage",
+      "properties": [
+        {
+          "id": "1:3138701474444696453",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "9:7977700797493693521",
+  "lastIndexId": "1:6190742138973010568",
+  "lastRelationId": "1:5441611030727067559",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    747831964335535222,
+    4651615864322634293,
+    1091231750478645253,
+    3306502642030329070
+  ],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    2584474832848465957,
+    4580888889582102859,
+    5400066642160923373,
+    2796361393654158383,
+    4907193833062832185,
+    3111711872221391444,
+    6159530164938927744,
+    3123754041505721480,
+    7237203063579120900,
+    4100484330637309071,
+    8320179227420068774,
+    2302630891506554280,
+    7765671539092662278,
+    7061162228466396506,
+    6437622717735475663,
+    2044814619654613751,
+    3630906603363422694,
+    8722598386180085515,
+    3942728790377468530,
+    5185816356473486300,
+    6047499622236506422,
+    6768301755525889300,
+    1550733389159712556,
+    1021262974217629365
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

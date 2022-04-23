@@ -1,21 +1,25 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main(List<String> args) {
-  group('Score',
+  setUp(()  {
+
+  });
+  group('CRUD',
     ()  {
-      
+      test('Create default',
+        ()  {
+
+        }
+      );
+
+      test('Update Mark',
+        ()  {
+          
+        }
+      );
     }
   );
-  
-  group('ScoreEntry',
-    ()  {
+  tearDown(()  {
 
-    }
-  );
-
-  group('Stage',
-    ()  {
-    }
-  );
-
+  });
 }
