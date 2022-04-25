@@ -12,7 +12,7 @@ import 'package:flat_buffers/flat_buffers.dart' as fb;
 import 'package:objectbox/internal.dart'; // generated code can access "internal" functionality
 import 'package:objectbox/objectbox.dart';
 
-import 'database/database.dart';
+import 'model/model.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
@@ -27,7 +27,7 @@ final _entities = <ModelEntity>[
             id: const IdUid(1, 1414513155036027999),
             name: 'id',
             type: 6,
-            flags: 129),
+            flags: 1),
         ModelProperty(
             id: const IdUid(2, 1777527789161249629),
             name: 'name',
@@ -57,45 +57,6 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(6, 9095652094058333340),
-      name: 'Participant',
-      lastPropertyId: const IdUid(6, 473302167760636704),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 2097063842679654283),
-            name: 'id',
-            type: 6,
-            flags: 129),
-        ModelProperty(
-            id: const IdUid(2, 1150680766921259761),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 226940530939374898),
-            name: 'residenceId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 7463807852558615959),
-            name: 'address',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 5071726637875788921),
-            name: 'phone',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 473302167760636704),
-            name: 'email',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
       id: const IdUid(7, 1372100812157548192),
       name: 'Score',
       lastPropertyId: const IdUid(3, 7910226822742996695),
@@ -105,7 +66,7 @@ final _entities = <ModelEntity>[
             id: const IdUid(1, 4894947576706125332),
             name: 'id',
             type: 6,
-            flags: 129),
+            flags: 1),
         ModelProperty(
             id: const IdUid(2, 1049902275129523636),
             name: 'judgeId',
@@ -124,14 +85,28 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(8, 4642788483252372017),
       name: 'ScoreboardEntry',
-      lastPropertyId: const IdUid(1, 5621815656417561678),
+      lastPropertyId: const IdUid(3, 8972690301078380260),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
             id: const IdUid(1, 5621815656417561678),
             name: 'id',
             type: 6,
-            flags: 129)
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 718624010146676961),
+            name: 'competitorId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(2, 5994553263546419004),
+            relationTarget: 'Competitor'),
+        ModelProperty(
+            id: const IdUid(3, 8972690301078380260),
+            name: 'stageId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(3, 3070000580883037925),
+            relationTarget: 'Stage')
       ],
       relations: <ModelRelation>[
         ModelRelation(
@@ -143,14 +118,87 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(9, 7977700797493693521),
       name: 'Stage',
-      lastPropertyId: const IdUid(1, 3138701474444696453),
+      lastPropertyId: const IdUid(2, 3937892433863462633),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
             id: const IdUid(1, 3138701474444696453),
             name: 'id',
             type: 6,
-            flags: 129)
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 3937892433863462633),
+            name: 'dbJudgeNPassingScores',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(10, 3273469657153820092),
+      name: 'Competitor',
+      lastPropertyId: const IdUid(7, 6772504220899237542),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 7455181319278288722),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 9061367631020027735),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 889120121631261264),
+            name: 'residenceId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 4843055048740156517),
+            name: 'address',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 8447025294662751815),
+            name: 'phone',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 9118174086770971415),
+            name: 'email',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 6772504220899237542),
+            name: 'competitorId',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(11, 2143324199937857484),
+      name: 'Tournament',
+      lastPropertyId: const IdUid(3, 8061955248373288839),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8860960041223858475),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 6965898717924337084),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 8061955248373288839),
+            name: 'description',
+            type: 9,
+            flags: 0)
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
@@ -176,15 +224,16 @@ Store openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(9, 7977700797493693521),
-      lastIndexId: const IdUid(1, 6190742138973010568),
+      lastEntityId: const IdUid(11, 2143324199937857484),
+      lastIndexId: const IdUid(3, 3070000580883037925),
       lastRelationId: const IdUid(1, 5441611030727067559),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [
         747831964335535222,
         4651615864322634293,
         1091231750478645253,
-        3306502642030329070
+        3306502642030329070,
+        9095652094058333340
       ],
       retiredIndexUids: const [],
       retiredPropertyUids: const [
@@ -211,7 +260,13 @@ ModelDefinition getObjectBoxModel() {
         6047499622236506422,
         6768301755525889300,
         1550733389159712556,
-        1021262974217629365
+        1021262974217629365,
+        2097063842679654283,
+        1150680766921259761,
+        226940530939374898,
+        7463807852558615959,
+        5071726637875788921,
+        473302167760636704
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -225,13 +280,7 @@ ModelDefinition getObjectBoxModel() {
         toManyRelations: (Judge object) => {},
         getId: (Judge object) => object.id,
         setId: (Judge object, int id) {
-          if (object.id != id) {
-            throw ArgumentError('Field Judge.id is read-only '
-                '(final or getter-only) and it was declared to be self-assigned. '
-                'However, the currently inserted object (.id=${object.id}) '
-                "doesn't match the inserted ID (ID $id). "
-                'You must assign an ID before calling [box.put()].');
-          }
+          object.id = id;
         },
         objectToFB: (Judge object, fb.Builder fbb) {
           final nameOffset = fbb.writeString(object.name);
@@ -273,73 +322,13 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
-    Participant: EntityDefinition<Participant>(
-        model: _entities[1],
-        toOneRelations: (Participant object) => [],
-        toManyRelations: (Participant object) => {},
-        getId: (Participant object) => object.id,
-        setId: (Participant object, int id) {
-          if (object.id != id) {
-            throw ArgumentError('Field Participant.id is read-only '
-                '(final or getter-only) and it was declared to be self-assigned. '
-                'However, the currently inserted object (.id=${object.id}) '
-                "doesn't match the inserted ID (ID $id). "
-                'You must assign an ID before calling [box.put()].');
-          }
-        },
-        objectToFB: (Participant object, fb.Builder fbb) {
-          final nameOffset = fbb.writeString(object.name);
-          final residenceIdOffset = object.residenceId == null
-              ? null
-              : fbb.writeString(object.residenceId!);
-          final addressOffset =
-              object.address == null ? null : fbb.writeString(object.address!);
-          final phoneOffset =
-              object.phone == null ? null : fbb.writeString(object.phone!);
-          final emailOffset =
-              object.email == null ? null : fbb.writeString(object.email!);
-          fbb.startTable(7);
-          fbb.addInt64(0, object.id);
-          fbb.addOffset(1, nameOffset);
-          fbb.addOffset(2, residenceIdOffset);
-          fbb.addOffset(3, addressOffset);
-          fbb.addOffset(4, phoneOffset);
-          fbb.addOffset(5, emailOffset);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-
-          final object = Participant(
-              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
-              name: const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 6, ''),
-              residenceId: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 8),
-              address: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 10),
-              phone: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12),
-              email: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 14));
-
-          return object;
-        }),
     Score: EntityDefinition<Score>(
-        model: _entities[2],
+        model: _entities[1],
         toOneRelations: (Score object) => [object.judge],
         toManyRelations: (Score object) => {},
         getId: (Score object) => object.id,
         setId: (Score object, int id) {
-          if (object.id != id) {
-            throw ArgumentError('Field Score.id is read-only '
-                '(final or getter-only) and it was declared to be self-assigned. '
-                'However, the currently inserted object (.id=${object.id}) '
-                "doesn't match the inserted ID (ID $id). "
-                'You must assign an ID before calling [box.put()].');
-          }
+          object.id = id;
         },
         objectToFB: (Score object, fb.Builder fbb) {
           fbb.startTable(4);
@@ -355,32 +344,28 @@ ModelDefinition getObjectBoxModel() {
 
           final object = Score(
               id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
-              judge: ToOne(
-                  targetId: const fb.Int64Reader()
-                      .vTableGet(buffer, rootOffset, 6, 0)),
               score:
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0));
+          object.judge.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           object.judge.attach(store);
           return object;
         }),
     ScoreboardEntry: EntityDefinition<ScoreboardEntry>(
-        model: _entities[3],
-        toOneRelations: (ScoreboardEntry object) => [],
+        model: _entities[2],
+        toOneRelations: (ScoreboardEntry object) =>
+            [object.competitor, object.stage],
         toManyRelations: (ScoreboardEntry object) =>
             {RelInfo<ScoreboardEntry>.toMany(1, object.id): object.scores},
         getId: (ScoreboardEntry object) => object.id,
         setId: (ScoreboardEntry object, int id) {
-          if (object.id != id) {
-            throw ArgumentError('Field ScoreboardEntry.id is read-only '
-                '(final or getter-only) and it was declared to be self-assigned. '
-                'However, the currently inserted object (.id=${object.id}) '
-                "doesn't match the inserted ID (ID $id). "
-                'You must assign an ID before calling [box.put()].');
-          }
+          object.id = id;
         },
         objectToFB: (ScoreboardEntry object, fb.Builder fbb) {
-          fbb.startTable(2);
+          fbb.startTable(4);
           fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.competitor.targetId);
+          fbb.addInt64(2, object.stage.targetId);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -389,8 +374,13 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = ScoreboardEntry(
-              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
-              scores: ToMany());
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
+          object.competitor.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.competitor.attach(store);
+          object.stage.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0);
+          object.stage.attach(store);
           InternalToManyAccess.setRelInfo(
               object.scores,
               store,
@@ -399,22 +389,19 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Stage: EntityDefinition<Stage>(
-        model: _entities[4],
+        model: _entities[3],
         toOneRelations: (Stage object) => [],
         toManyRelations: (Stage object) => {},
         getId: (Stage object) => object.id,
         setId: (Stage object, int id) {
-          if (object.id != id) {
-            throw ArgumentError('Field Stage.id is read-only '
-                '(final or getter-only) and it was declared to be self-assigned. '
-                'However, the currently inserted object (.id=${object.id}) '
-                "doesn't match the inserted ID (ID $id). "
-                'You must assign an ID before calling [box.put()].');
-          }
+          object.id = id;
         },
         objectToFB: (Stage object, fb.Builder fbb) {
-          fbb.startTable(2);
+          final dbJudgeNPassingScoresOffset =
+              fbb.writeString(object.dbJudgeNPassingScores);
+          fbb.startTable(3);
           fbb.addInt64(0, object.id);
+          fbb.addOffset(1, dbJudgeNPassingScoresOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -423,7 +410,94 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = Stage(
-              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0))
+            ..dbJudgeNPassingScores =
+                const fb.StringReader(asciiOptimization: true)
+                    .vTableGet(buffer, rootOffset, 6, '');
+
+          return object;
+        }),
+    Competitor: EntityDefinition<Competitor>(
+        model: _entities[4],
+        toOneRelations: (Competitor object) => [],
+        toManyRelations: (Competitor object) => {},
+        getId: (Competitor object) => object.id,
+        setId: (Competitor object, int id) {
+          object.id = id;
+        },
+        objectToFB: (Competitor object, fb.Builder fbb) {
+          final nameOffset = fbb.writeString(object.name);
+          final residenceIdOffset = object.residenceId == null
+              ? null
+              : fbb.writeString(object.residenceId!);
+          final addressOffset =
+              object.address == null ? null : fbb.writeString(object.address!);
+          final phoneOffset =
+              object.phone == null ? null : fbb.writeString(object.phone!);
+          final emailOffset =
+              object.email == null ? null : fbb.writeString(object.email!);
+          fbb.startTable(8);
+          fbb.addInt64(0, object.id);
+          fbb.addOffset(1, nameOffset);
+          fbb.addOffset(2, residenceIdOffset);
+          fbb.addOffset(3, addressOffset);
+          fbb.addOffset(4, phoneOffset);
+          fbb.addOffset(5, emailOffset);
+          fbb.addInt64(6, object.competitorId);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+
+          final object = Competitor(
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
+              competitorId:
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 16, 0),
+              name: const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 6, ''),
+              residenceId: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8),
+              address: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10),
+              phone: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12),
+              email: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14));
+
+          return object;
+        }),
+    Tournament: EntityDefinition<Tournament>(
+        model: _entities[5],
+        toOneRelations: (Tournament object) => [],
+        toManyRelations: (Tournament object) => {},
+        getId: (Tournament object) => object.id,
+        setId: (Tournament object, int id) {
+          object.id = id;
+        },
+        objectToFB: (Tournament object, fb.Builder fbb) {
+          final nameOffset = fbb.writeString(object.name);
+          final descriptionOffset = object.description == null
+              ? null
+              : fbb.writeString(object.description!);
+          fbb.startTable(4);
+          fbb.addInt64(0, object.id);
+          fbb.addOffset(1, nameOffset);
+          fbb.addOffset(2, descriptionOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+
+          final object = Tournament(
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
+              name: const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 6, ''),
+              description: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8));
 
           return object;
         })
@@ -454,59 +528,90 @@ class Judge_ {
   static final email = QueryStringProperty<Judge>(_entities[0].properties[5]);
 }
 
-/// [Participant] entity fields to define ObjectBox queries.
-class Participant_ {
-  /// see [Participant.id]
-  static final id =
-      QueryIntegerProperty<Participant>(_entities[1].properties[0]);
-
-  /// see [Participant.name]
-  static final name =
-      QueryStringProperty<Participant>(_entities[1].properties[1]);
-
-  /// see [Participant.residenceId]
-  static final residenceId =
-      QueryStringProperty<Participant>(_entities[1].properties[2]);
-
-  /// see [Participant.address]
-  static final address =
-      QueryStringProperty<Participant>(_entities[1].properties[3]);
-
-  /// see [Participant.phone]
-  static final phone =
-      QueryStringProperty<Participant>(_entities[1].properties[4]);
-
-  /// see [Participant.email]
-  static final email =
-      QueryStringProperty<Participant>(_entities[1].properties[5]);
-}
-
 /// [Score] entity fields to define ObjectBox queries.
 class Score_ {
   /// see [Score.id]
-  static final id = QueryIntegerProperty<Score>(_entities[2].properties[0]);
+  static final id = QueryIntegerProperty<Score>(_entities[1].properties[0]);
 
   /// see [Score.judge]
   static final judge =
-      QueryRelationToOne<Score, Judge>(_entities[2].properties[1]);
+      QueryRelationToOne<Score, Judge>(_entities[1].properties[1]);
 
   /// see [Score.score]
-  static final score = QueryIntegerProperty<Score>(_entities[2].properties[2]);
+  static final score = QueryIntegerProperty<Score>(_entities[1].properties[2]);
 }
 
 /// [ScoreboardEntry] entity fields to define ObjectBox queries.
 class ScoreboardEntry_ {
   /// see [ScoreboardEntry.id]
   static final id =
-      QueryIntegerProperty<ScoreboardEntry>(_entities[3].properties[0]);
+      QueryIntegerProperty<ScoreboardEntry>(_entities[2].properties[0]);
+
+  /// see [ScoreboardEntry.competitor]
+  static final competitor = QueryRelationToOne<ScoreboardEntry, Competitor>(
+      _entities[2].properties[1]);
+
+  /// see [ScoreboardEntry.stage]
+  static final stage =
+      QueryRelationToOne<ScoreboardEntry, Stage>(_entities[2].properties[2]);
 
   /// see [ScoreboardEntry.scores]
   static final scores =
-      QueryRelationToMany<ScoreboardEntry, Score>(_entities[3].relations[0]);
+      QueryRelationToMany<ScoreboardEntry, Score>(_entities[2].relations[0]);
 }
 
 /// [Stage] entity fields to define ObjectBox queries.
 class Stage_ {
   /// see [Stage.id]
-  static final id = QueryIntegerProperty<Stage>(_entities[4].properties[0]);
+  static final id = QueryIntegerProperty<Stage>(_entities[3].properties[0]);
+
+  /// see [Stage.dbJudgeNPassingScores]
+  static final dbJudgeNPassingScores =
+      QueryStringProperty<Stage>(_entities[3].properties[1]);
+}
+
+/// [Competitor] entity fields to define ObjectBox queries.
+class Competitor_ {
+  /// see [Competitor.id]
+  static final id =
+      QueryIntegerProperty<Competitor>(_entities[4].properties[0]);
+
+  /// see [Competitor.name]
+  static final name =
+      QueryStringProperty<Competitor>(_entities[4].properties[1]);
+
+  /// see [Competitor.residenceId]
+  static final residenceId =
+      QueryStringProperty<Competitor>(_entities[4].properties[2]);
+
+  /// see [Competitor.address]
+  static final address =
+      QueryStringProperty<Competitor>(_entities[4].properties[3]);
+
+  /// see [Competitor.phone]
+  static final phone =
+      QueryStringProperty<Competitor>(_entities[4].properties[4]);
+
+  /// see [Competitor.email]
+  static final email =
+      QueryStringProperty<Competitor>(_entities[4].properties[5]);
+
+  /// see [Competitor.competitorId]
+  static final competitorId =
+      QueryIntegerProperty<Competitor>(_entities[4].properties[6]);
+}
+
+/// [Tournament] entity fields to define ObjectBox queries.
+class Tournament_ {
+  /// see [Tournament.id]
+  static final id =
+      QueryIntegerProperty<Tournament>(_entities[5].properties[0]);
+
+  /// see [Tournament.name]
+  static final name =
+      QueryStringProperty<Tournament>(_entities[5].properties[1]);
+
+  /// see [Tournament.description]
+  static final description =
+      QueryStringProperty<Tournament>(_entities[5].properties[2]);
 }

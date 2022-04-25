@@ -12,21 +12,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fluent_ui: ^3.10.3
-  fluentui_icons: ^1.0.0
   flutter_localizations: 
     sdk: flutter
     version: ^0.0.0
   get: ^4.6.1
   intl: ^0.17.0
   objectbox: ^1.4.1
-  freezed_annotation: ^2.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  freezed: ^2.0.2
   build_runner: ^2.1.10
 
   objectbox_generator:
@@ -46,5 +42,5 @@ flutter:
   assets:
     - assets/
 
-objectbox:
-  code_file: objectbox.code.dart
+# objectbox:
+#   code_file: objectbox.code.dart

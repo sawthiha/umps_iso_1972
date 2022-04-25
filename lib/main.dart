@@ -1,5 +1,8 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/route_manager.dart';
+
+part 'config.dart';
 
 void main() {
   runApp(
@@ -12,7 +15,7 @@ class App extends StatelessWidget   {
   const App({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => FluentApp(
+  Widget build(BuildContext context) => GetMaterialApp(
     title: 'UMPS ISO 1972: Photo Tournament Judging Interface',
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
