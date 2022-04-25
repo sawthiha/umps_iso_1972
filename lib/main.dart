@@ -2,6 +2,7 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
+import 'package:umps_iso_1972/database/database.dart';
 import 'package:umps_iso_1972/model/model.dart';
 import 'package:umps_iso_1972/objectbox.g.dart';
 
@@ -22,6 +23,7 @@ class App extends StatelessWidget   {
   @override
   Widget build(BuildContext context) => GetMaterialApp(
     title: 'UMPS ISO 1972: Photo Tournament Judging Interface',
+    initialBinding: AppBindings(),
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
     locale: const Locale('my'),
