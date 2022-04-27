@@ -8,7 +8,7 @@ class Competitor  {
   int id;
 
   int competitorId;
-  String name;
+  String? name;
   String? residenceId;
   String? address;
   String? phone;
@@ -17,7 +17,7 @@ class Competitor  {
   Competitor({
     this.id = 0,
     required this.competitorId,
-    required this.name,
+    this.name,
     this.residenceId,
     this.address,
     this.phone,

@@ -10,7 +10,8 @@ part 'stage.dart';
 part 'tournament.dart';
 
 class Database
-with CompetitorDB, JudgeDB, ScoreDB, StageDB, TournamentDB  {
+with CompetitorDBMixin, JudgeDB, ScoreDB, StageDB, TournamentDB
+implements CompetitorDB  {
 
   final Store store;
 
