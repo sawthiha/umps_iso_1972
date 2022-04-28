@@ -27,7 +27,7 @@ class Score  {
   Score(
     {
       this.id = 0,
-      required this.score,
+      this.score = 0,
     }
   );
 

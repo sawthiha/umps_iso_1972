@@ -190,12 +190,23 @@
           "type": 9
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "id": "2:2568818473547561097",
+          "name": "competitors",
+          "targetId": "10:3273469657153820092"
+        },
+        {
+          "id": "3:586466507117007659",
+          "name": "judges",
+          "targetId": "5:8360509503699827125"
+        }
+      ]
     }
   ],
   "lastEntityId": "11:2143324199937857484",
   "lastIndexId": "3:3070000580883037925",
-  "lastRelationId": "1:5441611030727067559",
+  "lastRelationId": "3:586466507117007659",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,

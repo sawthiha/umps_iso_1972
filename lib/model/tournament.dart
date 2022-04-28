@@ -7,6 +7,8 @@ class Tournament  {
   int id;
   String name;
   String? description;
+  final competitors = ToMany<Competitor>();
+  final judges = ToMany<Judge>();
 
   Tournament({
     this.id = 0,

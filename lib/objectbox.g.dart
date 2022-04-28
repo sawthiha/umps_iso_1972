@@ -200,7 +200,16 @@ final _entities = <ModelEntity>[
             type: 9,
             flags: 0)
       ],
-      relations: <ModelRelation>[],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(2, 2568818473547561097),
+            name: 'competitors',
+            targetId: const IdUid(10, 3273469657153820092)),
+        ModelRelation(
+            id: const IdUid(3, 586466507117007659),
+            name: 'judges',
+            targetId: const IdUid(5, 8360509503699827125))
+      ],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -226,7 +235,7 @@ ModelDefinition getObjectBoxModel() {
       entities: _entities,
       lastEntityId: const IdUid(11, 2143324199937857484),
       lastIndexId: const IdUid(3, 3070000580883037925),
-      lastRelationId: const IdUid(1, 5441611030727067559),
+      lastRelationId: const IdUid(3, 586466507117007659),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [
         747831964335535222,
@@ -426,7 +435,8 @@ ModelDefinition getObjectBoxModel() {
           object.id = id;
         },
         objectToFB: (Competitor object, fb.Builder fbb) {
-          final nameOffset = fbb.writeString(object.name);
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
           final residenceIdOffset = object.residenceId == null
               ? null
               : fbb.writeString(object.residenceId!);
@@ -456,7 +466,7 @@ ModelDefinition getObjectBoxModel() {
               competitorId:
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 16, 0),
               name: const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 6, ''),
+                  .vTableGetNullable(buffer, rootOffset, 6),
               residenceId: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 8),
               address: const fb.StringReader(asciiOptimization: true)
@@ -471,7 +481,10 @@ ModelDefinition getObjectBoxModel() {
     Tournament: EntityDefinition<Tournament>(
         model: _entities[5],
         toOneRelations: (Tournament object) => [],
-        toManyRelations: (Tournament object) => {},
+        toManyRelations: (Tournament object) => {
+              RelInfo<Tournament>.toMany(2, object.id): object.competitors,
+              RelInfo<Tournament>.toMany(3, object.id): object.judges
+            },
         getId: (Tournament object) => object.id,
         setId: (Tournament object, int id) {
           object.id = id;
@@ -498,7 +511,16 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGet(buffer, rootOffset, 6, ''),
               description: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 8));
-
+          InternalToManyAccess.setRelInfo(
+              object.competitors,
+              store,
+              RelInfo<Tournament>.toMany(2, object.id),
+              store.box<Tournament>());
+          InternalToManyAccess.setRelInfo(
+              object.judges,
+              store,
+              RelInfo<Tournament>.toMany(3, object.id),
+              store.box<Tournament>());
           return object;
         })
   };
@@ -614,4 +636,12 @@ class Tournament_ {
   /// see [Tournament.description]
   static final description =
       QueryStringProperty<Tournament>(_entities[5].properties[2]);
+
+  /// see [Tournament.competitors]
+  static final competitors =
+      QueryRelationToMany<Tournament, Competitor>(_entities[5].relations[0]);
+
+  /// see [Tournament.judges]
+  static final judges =
+      QueryRelationToMany<Tournament, Judge>(_entities[5].relations[1]);
 }
