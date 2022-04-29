@@ -12,12 +12,14 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_hooks: ^0.18.3
   flutter_localizations: 
     sdk: flutter
     version: ^0.0.0
   get: ^4.6.1
   intl: ^0.17.0
   objectbox: ^1.4.1
+  objectbox_flutter_libs: any
 
 dev_dependencies:
   flutter_test:
