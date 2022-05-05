@@ -5,7 +5,8 @@ mixin ScoreDBMixin  {
   Box<Score> get scoreBox;
   Box<ScoreboardEntry> get scoreboardEntryBox;
 
-  ScoreboardEntry createScoreboardEntry(Stage stage, Competitor competitor, Iterable<Judge> judgeIterable)  {
+  
+  ScoreboardEntry _createScoreboardEntry(Stage stage, Competitor competitor, Iterable<Judge> judgeIterable)  {
     final entry = ScoreboardEntry();
     entry.stage.target = stage;
     entry.competitor.target = competitor;
@@ -19,8 +20,21 @@ mixin ScoreDBMixin  {
     entry.scores.addAll(
       scores
     );
+    return entry;
+  }
+
+  ScoreboardEntry createScoreboardEntry(Stage stage, Competitor competitor, Iterable<Judge> judgeIterable)  {
+    final entry = _createScoreboardEntry(stage, competitor, judgeIterable);
     scoreboardEntryBox.put(entry);
     return entry;
+  }
+
+  List<ScoreboardEntry> createScoreBoardEntries(Stage stage, Iterable<Competitor> competitors, Iterable<Judge> judgeIterable)  {
+    final scoreEntries = competitors.map(
+      (competitor) => _createScoreboardEntry(stage, competitor, judgeIterable)
+    ).toList();
+    scoreboardEntryBox.putMany(scoreEntries);
+    return scoreEntries;
   }
 
 }
