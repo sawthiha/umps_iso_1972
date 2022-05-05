@@ -4,7 +4,6 @@ mixin ScoreDBMixin  {
 
   Box<Score> get scoreBox;
   Box<ScoreboardEntry> get scoreboardEntryBox;
-
   
   ScoreboardEntry _createScoreboardEntry(Stage stage, Competitor competitor, Iterable<Judge> judgeIterable)  {
     final entry = ScoreboardEntry();
