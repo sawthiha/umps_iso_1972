@@ -1,5 +1,16 @@
 part of database;
 
+abstract class TournamentDB  {
+
+  Tournament createTournament({
+    required String name,
+    String? description,
+    required Iterable<Judge> judges,
+    required Iterable<Competitor> competitors,
+  });
+
+}
+
 mixin TournamentDBMixin  {
 
   Box<Tournament> get tournamentBox;
